@@ -4,8 +4,14 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Routes } from "./src/Routes";
 import Examples from "./src/Examples";
 import Rainbow from "./src/Rainbow";
+import Chrome from "./src/Chrome";
 import Duolingo, { assets as duolingoAssets } from "./src/Duolingo";
+import Snapchat, { assets as snapChatAssets } from "./src/Snapchat";
+import PhilzCoffee, { assets as philzCoffeeAssets } from "./src/PhilzCoffee";
+import Chanel, { assets as chanelAssets } from "./src/Chanel";
+import { Reflectly, ColorSelection } from "./src/Reflectly";
 import { LoadAssets } from "./src/components";
+import Chess, { assets as chessAssets } from "./src/Chess";
 
 const fonts = {
   "SFProDisplay-Bold": require("./assets/fonts/SFPro/SF-Pro-Display-Bold.otf"),
@@ -14,9 +20,18 @@ const fonts = {
   "SFProDisplay-Medium": require("./assets/fonts/SFPro/SF-Pro-Display-Medium.otf"),
   "Nunito-Bold": require("./assets/fonts/Nunito/Nunito-Bold.ttf"),
   "Nunito-Regular": require("./assets/fonts/Nunito/Nunito-Regular.ttf"),
+  "GothamRounded-Medium": require("./assets/fonts/GothamRounded/GothamRounded-Medium.otf"),
+  "GothamRounded-Bold": require("./assets/fonts/GothamRounded/GothamRounded-Bold.otf"),
+  "GothamRounded-Light": require("./assets/fonts/GothamRounded/GothamRounded-Light.otf"),
 };
 
-const assets = [...duolingoAssets];
+const assets = [
+  ...duolingoAssets,
+  ...snapChatAssets,
+  ...philzCoffeeAssets,
+  ...chanelAssets,
+  ...chessAssets,
+];
 
 const Stack = createStackNavigator<Routes>();
 const AppNavigator = () => (
@@ -42,6 +57,59 @@ const AppNavigator = () => (
         title: "🌈 Rainbow",
       }}
     />
+    <Stack.Screen
+      name="Chrome"
+      component={Chrome}
+      options={{
+        title: "🧭 Google Chrome",
+        header: () => null,
+      }}
+    />
+    <Stack.Screen
+      name="PhilzCoffee"
+      component={PhilzCoffee}
+      options={{
+        title: "☕️ Philz Coffee",
+      }}
+    />
+    <Stack.Screen
+      name="Snapchat"
+      component={Snapchat}
+      options={{
+        title: "👻 Snapchat",
+        header: () => null,
+      }}
+    />
+    <Stack.Screen
+      name="Chanel"
+      component={Chanel}
+      options={{
+        title: "👗 Chanel",
+        header: () => null,
+      }}
+    />
+    <Stack.Screen
+      name="ColorSelection"
+      component={ColorSelection}
+      options={{
+        title: "🤖 Color Selection",
+      }}
+    />
+    <Stack.Screen
+      name="Chess"
+      component={Chess}
+      options={{
+        title: "♟ Chess",
+        header: () => null,
+      }}
+    />
+    <Stack.Screen
+      name="Reflectly"
+      component={Reflectly}
+      options={{
+        title: "🤖 Reflectly Tabbar",
+      }}
+    />
   </Stack.Navigator>
 );
 
@@ -53,4 +121,5 @@ const App = () => {
   );
 };
 
+// eslint-disable-next-line ts-exports/unused-exports
 export default App;
